@@ -33,7 +33,7 @@
                     <p class="text-center mt-4 fw-bold fs-4">Restore Database</p>
                 </div>
                 <div class="col-4 p-5">
-                    <a href="/login"><img src="/images/contact-logo.png" class="img-fluid" alt=""></a>
+                    <a href="https://api.whatsapp.com/send?phone=6281329300029&text&type=phone_number&app_absent=0"><img src="/images/contact-logo.png" class="img-fluid" alt=""></a>
                     <p class="text-center mt-4 fw-bold fs-4">Contact & Help</p>
                 </div>
             </div>
