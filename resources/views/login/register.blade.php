@@ -13,7 +13,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Login Basic - Pages | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Register | Helpdestik Kominfo Kudus</title>
 
     <meta name="description" content="" />
 
@@ -115,12 +115,8 @@
               <!-- /Logo -->
               <h4 class="mb-2 fw-bold">Register</h4>
     
-              <form id="formAuthentication" class="mb-3" action="/login">
-                
-                <div class="mb-3">
-                    <label for="name" class="form-label">Nama Lengkap</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama Lengkap" autofocus />
-                  </div>
+              <form id="formAuthentication" class="mb-3" method="post" action="/submit-register">
+                @csrf
                 <div class="mb-3">
                   <label for="usernmae" class="form-label">Username</label>
                   <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan Username" />

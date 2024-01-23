@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class SessionController extends Controller
@@ -46,15 +47,14 @@ class SessionController extends Controller
     }
 
     public function store(Request $request){
-        $request->validate([
-            'username'=>'required|unique',
-            'name'=>'required',
-            'email'=>'required|unique',
-            'password'=>'required',
-            'role'=>'required'
+        User::create([
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => $request->password,
+            'role' => $request->role
         ]);
 
-
+        return redirect('/login');
     }
 
     public function logout(){

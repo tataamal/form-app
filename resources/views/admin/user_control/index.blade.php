@@ -20,8 +20,8 @@
             <tbody class="table-border-bottom-0">
                 <tr>
                     <th>1</th>
-                    <th>Nama Lengkap Admin</th>
-                    <th>Username Admin</th>
+                    <th>Nama Lengkap User</th>
+                    <th>Username User</th>
                     <td>
                         <div class="dropdown">
                         <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">

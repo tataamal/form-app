@@ -12,16 +12,16 @@
             <thead>
                 <tr>
                 <th>No</th>
-                <th>Nama</th>
-                <th>Username</th>
+                <th>Kritik</th>
+                <th>Saran</th>
                 <th>Aksi</th>
                 </tr>
             </thead>
             <tbody class="table-border-bottom-0">
                 <tr>
                     <th>1</th>
-                    <th>Nama Lengkap Admin</th>
-                    <th>Username Admin</th>
+                    <th>Inventore id quod vitae officia hic tempora accusantium op</th>
+                    <th>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</th>
                     <td>
                         <div class="dropdown">
                         <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">

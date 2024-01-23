@@ -11,29 +11,29 @@
             <h2 class="d-flex justify-content-center fw-bold pb-5 " >Pusat Formulir Kominfo</h2>
             <div class="card  d-flex flex-row no-block justify-content-center">
                 <div class="col-4 p-5">
-                        <a href=""><img src="/images/dashboard-logo.png" class="img-fluid" alt=""></a>
+                        <a href="/login"><img src="/images/dashboard-logo.png" class="img-fluid" alt=""></a>
                         <p class="text-center mt-4 fw-bold fs-4">Dashboard</p>
                 </div>
                 <div class="col-4 p-5 ">
-                        <a href=""><img src="/images/rfc-logo.png" class="img-fluid" alt=""></a>
+                        <a href="/login"><img src="/images/rfc-logo.png" class="img-fluid" alt=""></a>
                         <p class="text-center mt-4 fw-bold fs-4">Request Of Change</p>
                 </div>
                 <div class="col-4 p-5 ">
-                        <a href=""><img src="/images/backup.png" class="img-fluid" alt=""></a>
+                        <a href="/login"><img src="/images/backup.png" class="img-fluid" alt=""></a>
                         <p class="text-center mt-4 fw-bold fs-4">BackUp</p>
                 </div>
             </div>
             <div class="card  d-flex flex-row no-block justify-content-center">
                 <div class="col-4 p-5">
-                        <a href=""><img src="/images/monitoring-logo.png" class="img-fluid" alt=""></a>
+                        <a href="/login"><img src="/images/monitoring-logo.png" class="img-fluid" alt=""></a>
                         <p class="text-center mt-4 fw-bold fs-4">Monitoring</p>
                 </div>
                 <div class="col-4 p-5">
-                    <a href=""><img src="/images/restore.png" class="img-fluid" alt=""></a>
+                    <a href="/login"><img src="/images/restore.png" class="img-fluid" alt=""></a>
                     <p class="text-center mt-4 fw-bold fs-4">Restore Database</p>
                 </div>
                 <div class="col-4 p-5">
-                    <a href=""><img src="/images/contact-logo.png" class="img-fluid" alt=""></a>
+                    <a href="/login"><img src="/images/contact-logo.png" class="img-fluid" alt=""></a>
                     <p class="text-center mt-4 fw-bold fs-4">Contact & Help</p>
                 </div>
             </div>

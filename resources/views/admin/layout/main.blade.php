@@ -55,9 +55,9 @@
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="index.html" class="navbar-brand">
+            <a href="/admin/dashboard" class="navbar-brand">
               <img src="/images/LogoKominfo.jpg" width="50" height="auto" alt="">
-              <span class="app-brand-text demo menu-text fw-bold ms-2">HELPDESTIK</span>
+              <span class="app-brand-text demo menu-text fw-bold ms-2">HELPDESKTIK</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -69,77 +69,91 @@
 
           <ul class="menu-inner py-1">
             <!-- Layouts -->
+            <li class="menu-item">
+              <a href="#" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">Kelola Pengguna</div>
+              </a>
+
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="/admin/kelola_admin" class="menu-link">
+                    <div data-i18n="Without menu">Kelola Admin</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="/admin/kelola_user" class="menu-link">
+                    <div data-i18n="Without navbar">Kelola User</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Form</span>
             </li>
             <!-- Pages -->
             <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <a href="#" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div data-i18n="Account Settings">Request For Change</div>
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="/user/rfc-create" class="menu-link">
+                  <a href="/admin/rfc" class="menu-link">
                     <div data-i18n="Account">Formulir Pengajuan</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="/user/rfc-index" class="menu-link">
+                  <a href="/admin/riwayat_rfc" class="menu-link">
                     <div data-i18n="Notifications">Riwayat Pengajuan</div>
                   </a>
                 </li>
               </ul>
             </li>
             <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <a href="#" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
                 <div data-i18n="Authentications">Monitoring Server</div>
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="/user/monitoring-create" class="menu-link">
-                    <div data-i18n="Account">Formulir</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="/user/monitoring-index" class="menu-link">
+                  <a href="/admin/riwayat_monitoring" class="menu-link">
                     <div data-i18n="Notifications">Riwayat</div>
                   </a>
                 </li>
               </ul>
             </li>
             <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <a href="#" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
                 <div data-i18n="Authentications">Backup</div>
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="/user/backup-create" class="menu-link">
+                  <a href="/admin/backup" class="menu-link">
                     <div data-i18n="Account">Formulir</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="/user/backup-index" class="menu-link">
+                  <a href="/admin/riwayat_backup" class="menu-link">
                     <div data-i18n="Notifications">Riwayat</div>
                   </a>
                 </li>
               </ul>
             </li>
             <li class="menu-item">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <a href="#" class="menu-link menu-toggle">
                   <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
                   <div data-i18n="Authentications">Restore</div>
                 </a>
                 <ul class="menu-sub">
                   <li class="menu-item">
-                    <a href="/user/restore-create" class="menu-link">
+                    <a href="/admin/restore" class="menu-link">
                       <div data-i18n="Account">Formulir</div>
                     </a>
                   </li>
                   <li class="menu-item">
-                    <a href="/user/restore-index" class="menu-link">
+                    <a href="/admin/riwayat_restore" class="menu-link">
                       <div data-i18n="Notifications">Riwayat</div>
                     </a>
                   </li>
@@ -149,7 +163,7 @@
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Feedback</span></li>
             <!-- Cards -->
             <li class="menu-item">
-              <a href="cards-basic.html" class="menu-link">
+              <a href="/admin/krisar" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Kritik dan Saran</div>
               </a>
