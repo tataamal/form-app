@@ -58,6 +58,5 @@ Route::middleware(['auth'])->group(function(){
     Route::get('admin/backup', [BackupController::class, 'index']);
     Route::get('admin/riwayat_backup', [BackupController::class, 'create']);
     Route::post('submit-backup', [BackupController::class, 'store']);
-    Route::get('admin/krisar',[KrisarController::class, 'index']);
     Route::get('logout', [SessionController::class, 'logout']);
 }); 

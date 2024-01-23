@@ -159,15 +159,6 @@
                   </li>
                 </ul>
               </li>
-            <!-- Components -->
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">Feedback</span></li>
-            <!-- Cards -->
-            <li class="menu-item">
-              <a href="/admin/krisar" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">Kritik dan Saran</div>
-              </a>
-            </li>
           </ul>
         </aside>
         <!-- / Menu -->
