@@ -5,7 +5,7 @@
   class="light-style layout-menu-fixed layout-compact"
   dir="ltr"
   data-theme="theme-default"
-  data-assets-path="../assets/"
+  data-assets-path="/assets/"
   data-template="vertical-menu-template-free">
   <head>
     <meta charset="utf-8" />
@@ -27,24 +27,24 @@
       href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
       rel="stylesheet" />
 
-    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="/assets/vendor/fonts/boxicons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="../assets/css/demo.css" />
+    <link rel="stylesheet" href="/assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="/assets/css/demo.css" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-    <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="/assets/vendor/libs/apex-charts/apex-charts.css" />
 
     <!-- Page CSS -->
 
     <!-- Helpers -->
-    <script src="../assets/vendor/js/helpers.js"></script>
+    <script src="/assets/vendor/js/helpers.js"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="../assets/js/config.js"></script>
+    <script src="/assets/js/config.js"></script>
   </head>
 
   <body>
@@ -69,25 +69,6 @@
 
           <ul class="menu-inner py-1">
             <!-- Layouts -->
-            <li class="menu-item">
-              <a href="#" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Kelola Pengguna</div>
-              </a>
-
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="/admin/kelola_admin" class="menu-link">
-                    <div data-i18n="Without menu">Kelola Admin</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="/admin/kelola_user" class="menu-link">
-                    <div data-i18n="Without navbar">Kelola User</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Form</span>
             </li>
@@ -99,13 +80,13 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="/admin/rfc" class="menu-link">
-                    <div data-i18n="Account">Formulir Pengajuan</div>
+                  <a href="{{ url('admin/index-rfc') }}" class="menu-link">
+                    <div data-i18n="Account">Data Pengajuan RFC</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="/admin/riwayat_rfc" class="menu-link">
-                    <div data-i18n="Notifications">Riwayat Pengajuan</div>
+                  <a href="{{ url('admin/history-rfc') }}" class="menu-link">
+                    <div data-i18n="Notifications">Riwayat Pengajuan RFC</div>
                   </a>
                 </li>
               </ul>
@@ -117,7 +98,7 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="/admin/riwayat_monitoring" class="menu-link">
+                  <a href="{{ url('admin/index-monitoring') }}" class="menu-link">
                     <div data-i18n="Notifications">Riwayat</div>
                   </a>
                 </li>
@@ -130,13 +111,8 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="/admin/backup" class="menu-link">
-                    <div data-i18n="Account">Formulir</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="/admin/riwayat_backup" class="menu-link">
-                    <div data-i18n="Notifications">Riwayat</div>
+                  <a href={{ url('admin/index-backup') }} class="menu-link">
+                    <div data-i18n="Notifications">Data Backup</div>
                   </a>
                 </li>
               </ul>
@@ -147,13 +123,9 @@
                   <div data-i18n="Authentications">Restore</div>
                 </a>
                 <ul class="menu-sub">
+    
                   <li class="menu-item">
-                    <a href="/admin/restore" class="menu-link">
-                      <div data-i18n="Account">Formulir</div>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="/admin/riwayat_restore" class="menu-link">
+                    <a href={{ url('admin/index-restore') }} class="menu-link">
                       <div data-i18n="Notifications">Riwayat</div>
                     </a>
                   </li>
@@ -207,14 +179,6 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="#">
-                        <i class="bx bx-user me-2"></i>
-                        <span class="align-middle">My Profile</span>
-                      </a>
-                    <li>
-                      <div class="dropdown-divider"></div>
-                    </li>
-                    <li>
                       <a class="dropdown-item" href="/logout">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
@@ -251,24 +215,25 @@
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
 
-    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../assets/vendor/libs/popper/popper.js"></script>
-    <script src="../assets/vendor/js/bootstrap.js"></script>
-    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="../assets/vendor/js/menu.js"></script>
+
+    <script src="/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="/assets/vendor/libs/popper/popper.js"></script>
+    <script src="/assets/vendor/js/bootstrap.js"></script>
+    <script src="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="/assets/vendor/js/menu.js"></script>
 
     <!-- endbuild -->
 
     <!-- Vendors JS -->
-    <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+    <script src="/assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
     <!-- Main JS -->
-    <script src="../assets/js/main.js"></script>
+    <script src="/assets/js/main.js"></script>
 
     <!-- Page JS -->
-    <script src="../assets/js/dashboards-analytics.js"></script>
+    <script src="/assets/js/dashboards-analytics.js"></script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>
-</html>            
+</html>                    

@@ -15,24 +15,36 @@
             <th>Periode Backup</th>
             <th>Tanggal Backup</th>
             <th>Objek Backup</th>
-            <th>Status Backup</th>
             <th>Penanggung Jawab</th>
             <th>Keterangan</th>
+            <th>Aksi</th>
             </tr>
         </thead>
         <tbody class="table-border-bottom-0">
-            @foreach ($data_backup as $item)
-                
+            
+            @forelse ($data_backup as $item)
             <tr>
-                <th>{{ $item->id_backup }}</th>
-                <th>{{ $item->periode }}</th>
-                <th>{{ $item->tanggal }}</th>
-                <th>{{ $item->objek }}</th>
-                <td><span class="badge bg-label-success me-1">Disetujui</span></td>
-                <th>{{ $item->pj }}</th>
-                <th>{{ $item->keterangan}}</th>
+                <td>{{ $item->id_backup }}</td>
+                <td>{{ $item->periode }}</td>
+                <td>{{ $item->tanggal }}</td>
+                <td>{{ $item->objek }}</td>
+                <td>{{ $item->pj }}</td>
+                <td>{{ $item->keterangan}}</td>
+                <td>
+                    <a href="{{ url('user/edit-backup', $item->id_backup) }}"><span class="btn btn-primary rounded-2 fw-semibold">Edit</span></a>
+                    <form action="{{ url('user/delete-backup', $item->id_backup) }}" class="mt-3" method="POST">
+                        @csrf
+                        @method("DELETE")
+                        <input type="submit" class="btn btn-danger rounded-2 fw-semibold" value="Delete">
+                    </form>
+                </td>
+                
             </tr>
-            @endforeach
+            @empty
+            <tr>
+                <td colspan="6" class="text-center" >Tidak ada Formulir Masuk</td>
+            </tr>
+            @endforelse
         </tbody>
         </table>
     </div>

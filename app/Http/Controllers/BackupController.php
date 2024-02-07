@@ -12,9 +12,19 @@ class BackupController extends Controller
      */
     public function index()
     {
-        return view('admin.backup.index',[
-            'title'=>'Backup'
-        ]);
+        if(Auth()->user()->role == 'admin'){
+            $data_backup = Backup::all();
+            return view('admin.backup.index',[
+                'title'=>'Backup'
+            ],compact('data_backup'));
+        }
+        elseif(Auth()->user()->role == 'user'){
+            $data_backup = Backup::all();
+            return view('user.backup.index',[
+                'title'=>'Riwayat Backup'  
+            ],compact('data_backup'));
+        }
+        
     }
 
     /**
@@ -22,10 +32,9 @@ class BackupController extends Controller
      */
     public function create()
     {
-        $data_backup = Backup::all();
-        return view('admin.backup.riwayat',[
-            'title'=>'Riwayat Backup'  
-        ],compact('data_backup'));
+        return view('user.backup.create',[
+            'title'=>'Formulir Backup'
+        ]);
     }
 
     /**
@@ -35,20 +44,19 @@ class BackupController extends Controller
     {
         // dd($request->all());
         Backup::create([
-           'periode' => $request->periode,
-           'tanggal' => $request->tanggal,
-           'objek' => $request->objek,
-           'pj' => $request->pj,
-           'keterangan' => $request->keterangan
-        ]);
- 
-        if (Auth::user()->role == 'admin') {
-            return redirect('admin/riwayat_backup');
-        } 
-        elseif(Auth::user()->role == 'user'){
-            return redirect('user/backup-index');
-        }
-        
+            'periode' => $request->periode,
+            'tanggal' => $request->tanggal,
+            'objek' => $request->objek,
+            'pj' => $request->pj,
+            'keterangan' => $request->keterangan
+         ]);
+  
+         if (Auth::user()->role == 'admin') {
+             return redirect('admin/riwayat_backup');
+         } 
+         elseif(Auth::user()->role == 'user'){
+             return redirect('user/index-backup');
+         }
     }
 
     /**
@@ -64,7 +72,10 @@ class BackupController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $backup = Backup::findorfail($id);
+        return view('user.backup.edit',[
+            'title' => 'Edit Data Backup'
+        ],compact('backup'));
     }
 
     /**
@@ -72,7 +83,9 @@ class BackupController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $backup = Backup::findorfail($id);
+        $backup->update($request->all());
+        return redirect('user/index-backup');
     }
 
     /**
@@ -80,25 +93,8 @@ class BackupController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $backup = Backup::findorfail($id);
+        $backup->delete();
+        return redirect('user/index-backup');
     }
-
-    public function user_backup_index()
-    {
-        
-        $data_backup = Backup::all();
-        return view('user.backup.index',[
-            'title'=>'Riwayat Backup'  
-        ],compact('data_backup'));
-    }
-
-    public function user_backup_create()
-    {
-        return view('user.backup.create',[
-            'title'=>'Formulir Backup'
-        ]);
-
-    }
-
-
 }

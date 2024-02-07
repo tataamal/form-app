@@ -16,10 +16,11 @@
                 <th>Diminta Oleh</th>
                 <th>Detail Perubahan</th>
                 <th>Status Persetujuan</th>
+                <th>Aksi</th>
                 </tr>
             </thead>
             <tbody class="table-border-bottom-0">
-                @forelse ($data_rfc as $item)
+                @forelse ($data_pengajuan as $item)
                 <tr>
                 <td>{{ $item->id_rfc }}</td>
                 <td>{{ date('d F Y', strtotime($item->tgl_req))}}</td>
@@ -33,6 +34,14 @@
                     @elseif ($item->acc == 'Belum disetujui')
                     <span class="badge bg-label-warning me-1">Belum disetujui</span>
                     @endif
+                </td>
+                <td>
+                    <a href="{{ url('user/edit-rfc', $item->id_rfc) }}"><span class="btn btn-primary rounded-2 fw-semibold">Edit</span></a>
+                    <form action="{{ url('user/delete-rfc', $item->id_rfc) }}" class="mt-3" method="POST">
+                        @csrf
+                        @method("DELETE")
+                        <input type="submit" class="btn btn-danger rounded-2 fw-semibold" value="Delete">
+                      </form>
                 </td>
                 </tr>    
                 @empty

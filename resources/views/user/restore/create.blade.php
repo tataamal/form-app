@@ -14,33 +14,48 @@
             <small class="text-muted float-end">Formulir Restore User</small>
           </div>
           <div class="card-body">
-            <form>
+            <form action="{{ url('user/submit-restore') }}" method="post">
+            @csrf
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label" for="inputGroupSelect01">Periode Backup</label>
                 <div class="col-sm-10  mb-3">
-                    <select class="form-select" id="inputGroupSelect01">
+                    <select class="form-select" name="periode" id="inputGroupSelect01">
                       <option selected>Pilih Periode ...</option>
-                      <option value="Setuju">Setuju</option>
-                      <option value="Tidak">Tidak</option>
+                      @foreach ($data_backup as $item)
+                      <option value="{{ $item->periode }}">{{ $item->periode }}</option>
+                      @endforeach
                     </select>
                 </div>
-              </div>
+              </div>  
+              
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label" for="basic-default-name">Tanggal Restore Test</label>
                 <div class="col-sm-10">
-                  <input type="date" class="form-control" id="basic-default-name" placeholder="" />
+                  <input type="date" class="form-control" name="tanggal" id="basic-default-name" placeholder="" />
                 </div>
               </div>
+
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="inputGroupSelect01">Objek Backup yang di Restore</label>
+                <div class="col-sm-10  mb-3">
+                    <select class="form-select" name="objek" id="inputGroupSelect01">
+                      <option selected>Pilih Objek ...</option>
+                      @foreach ($data_backup as $item)
+                      <option value="{{ $item->objek }}">{{ $item->objek }}</option>
+                      @endforeach
+                    </select>
+                </div>
+              </div> 
               <div class="row mb-3">
                   <label class="col-sm-2 col-form-label" for="basic-default-name">Status Restore</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="basic-default-name" placeholder="" />
+                    <input type="text" class="form-control" name="status" id="basic-default-name" placeholder="" />
                   </div>
               </div>
               <div class="row mb-3">
                   <label class="col-sm-2 col-form-label" for="basic-default-name">Penanggung Jawab</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="basic-default-name" placeholder="Masuka Nama Penanggung Jawab" />
+                    <input type="text" class="form-control" name="pj" id="basic-default-name" placeholder="Masuka Nama Penanggung Jawab" />
                   </div>
               </div>
               <div class="row mb-3">
@@ -50,6 +65,7 @@
                     id="basic-default-message"
                     class="form-control"
                     aria-label="Hi, Do you have a moment to talk Joe?"
+                    name="keterangan"
                     aria-describedby="basic-icon-default-message2"></textarea>
                 </div>
               </div>

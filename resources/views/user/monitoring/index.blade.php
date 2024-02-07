@@ -21,6 +21,7 @@
                 <th>Utilisation DISK</th>
                 <th>Tindak Lanjut</th>
                 <th>Penanggung Jawab</th>
+                <th>Aksi</th>
                 </tr>
             </thead>
             <tbody class="table-border-bottom-0">
@@ -36,10 +37,18 @@
                 <td>{{ $item->disk }}%</td>
                 <td>{{ $item->pj }}</td>
                 <td>{{ $item->tindak_lanjut }}</td>
+                <td>
+                    <a href="{{ url('user/edit-monitoring', $item->id_monitoring) }}"><span class="btn btn-primary rounded-2 fw-semibold">Edit</span></a>
+                    <form action="{{ url('user/delete-monitoring', $item->id_monitoring) }}" class="mt-3" method="POST">
+                        @csrf
+                        @method("DELETE")
+                        <input type="submit" class="btn btn-danger rounded-2 fw-semibold" value="Delete">
+                      </form>
+                </td>
                 </tr>                 
                 @empty
                 <tr>
-                    <td colspan="10">Belum Ada Formulir yang dikirimkan</td>
+                    <td colspan="10" class="text-center">Belum Ada Formulir yang dikirimkan</td>
                 </tr> 
                 @endforelse
             </tbody>

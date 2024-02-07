@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 use App\Models\Monitoring;
 use Illuminate\Http\Request;
 
@@ -11,16 +12,18 @@ class MonitoringController extends Controller
      */
     public function index()
     {
-        return view('admin.monitoring.index',[
-            'title'=>'Monitoring Server'
-        ]);
-    }
-
-    public function riwayat()
-    {
-        return view('admin.monitoring.riwayat',[
+        if(Auth()->user()->role == 'admin'){
+            $data_monitoring = Monitoring::all();
+            return view('admin.monitoring.index',[
             'title'=>'Riwayat Monitoring'  
-        ]);
+            ],compact('data_monitoring'));
+        }
+        elseif(Auth()->user()->role == 'user'){
+            $data_monitoring = Monitoring::all();
+            return view('user.monitoring.index',[
+            'title'=>'Riwayat Monitoring'  
+            ],compact('data_monitoring'));
+        }
     }
 
     /**
@@ -28,10 +31,9 @@ class MonitoringController extends Controller
      */
     public function create()
     {
-        $data_monitoring = Monitoring::all();
-        return view('user.monitoring.index',[
-            'title'=>'Riwayat Monitoring'  
-        ],compact('data_monitoring'));
+        return view('user.monitoring.create',[
+            'title'=>'Formulir Monitoring'  
+        ]);
     }
 
     /**
@@ -51,7 +53,7 @@ class MonitoringController extends Controller
             'pj' => $request->pj
         ]);
 
-        return redirect('user/monitoring-index');
+        return redirect('user/index-monitoring');
     }
 
     /**
@@ -67,7 +69,18 @@ class MonitoringController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        if(Auth()->user()->role == 'admin'){
+            $monitoring = Monitoring::findorfail($id);
+            return view('admin.monitoring.edit',[
+                'title' => 'Edit Data'
+            ],compact('monitoring'));
+        }
+        elseif(Auth()->user()->role == 'user'){
+            $monitoring = Monitoring::findorfail($id);
+            return view('user.monitoring.edit',[
+            'title' => 'Edit Formulir RFC'
+            ],compact('monitoring'));
+        }
     }
 
     /**
@@ -75,7 +88,9 @@ class MonitoringController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $monitoring = Monitoring::findorfail($id);
+        $monitoring->update($request->all());
+        return redirect('user/index-monitoring');
     }
 
     /**
@@ -83,20 +98,14 @@ class MonitoringController extends Controller
      */
     public function destroy(string $id)
     {
-        //
-    }
-
-    public function user_monitoring_create()
-    {
-        return view('user.monitoring.create',[
-            'title'=>'Formulir Monitoring'  
-        ]);
-    }
-
-    public function user_monitoring_index()
-    {
-        return view('user.monitoring.index',[
-            'title'=>'Riwayat Monitoring'  
-        ]);
+        $monitoring = Monitoring::findorfail($id);
+        $monitoring->delete();
+        if(Auth()->user()->role == 'admin'){
+            
+        }
+        elseif(Auth()->user()->role == 'user'){
+            return redirect('user/index-monitoring');
+        }
+        
     }
 }

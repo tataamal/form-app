@@ -14,7 +14,7 @@
             <small class="text-muted float-end">Tabel Backup User</small>
           </div>
           <div class="card-body">
-            <form action="/submit-backup" method="post">
+            <form action="{{ url('user/submit-backup')}}" method="post">
               @csrf
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label" for="inputGroupSelect01">Pilih Periode </label>
@@ -66,7 +66,7 @@
               </div>
               <div class="row mt-3">
                 <div class="">
-                  <button type="submit" class="btn btn-primary">Send</button>
+                  <button type="submit" class="btn btn-primary">Kirim</button>
                 </div>
               </div>
             </form>

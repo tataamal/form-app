@@ -3,13 +3,11 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BackupController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\KrisarController;
 use App\Http\Controllers\MonitoringController;
 use App\Http\Controllers\RestoreController;
 use App\Http\Controllers\RfcController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
-use App\Models\Rfc;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,10 +21,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// ini adalah routing utama
 Route::get('/', function () {
     return view('index');
 });
 
+
+
+Route::middleware(['auth'])->group(function(){
+    Route::get('logout', [SessionController::class, 'logout']);
+}); 
+
+
+// ini adalah routing untuk autentikasi
 Route::middleware(['guest'])->group(function(){
     Route::get('login', [SessionController::class, 'index']);
     Route::post('login', [SessionController::class, 'login']);
@@ -34,29 +41,93 @@ Route::middleware(['guest'])->group(function(){
     Route::post('submit-register', [SessionController::class, 'store']);
 }); 
 
+//ini adalah routing untuk admin
 Route::middleware(['auth'])->group(function(){
-    Route::get('user/dashboard', [DashboardController::class,'user']);
-    Route::get('user/rfc-create', [RfcController::class,'user_rfc_create']);
-    Route::get('user/rfc-index', [RfcController::class,'user_rfc_index']);
-    Route::post('submit-rfc', [RfcController::class, 'store']);
-    Route::get('user/monitoring-index', [MonitoringController::class,'create']);
+   
+});
+
+
+// ini adalah routing untuk user
+Route::middleware(['auth'])->group(function(){
+    // masuk ke halaman dashboard user
+    Route::get('user/dashboard',[DashboardController::class,'user']);
+
+    // routing rfc user
+    // masuk ke halaman index rfc user
+    Route::get('user/index-rfc',[RfcController::class,'index']);
+    // masuk ke halaman form user
+    Route::get('user/create-rfc',[RfcController::class,'create']);
+
+    // submit form yang telah di isi
+    Route::post('user/submit-rfc',[RfcController::class,'store']);
+    // masuk ke halaman edit
+    Route::get('user/edit-rfc/{id}',[RfcController::class,'edit']);
+    // mengurim hasil edit
+    Route::post('user/update-rfc/{id}',[RfcController::class,'update']);
+    // menghapus data rfc
+    Route::delete('user/delete-rfc/{id}',[RfcController::class,'destroy']);
+    
+    // routing monitoring user
+    // masuk ke halaman index monitoring user
+    Route::get('user/index-monitoring', [MonitoringController::class,'index']);
+    // masuk ke halaman form user
+    Route::get('user/create-monitoring', [MonitoringController::class,'create']);
+    // submit form yang telah di isi
     Route::post('user/submit-monitoring', [MonitoringController::class,'store']);
-    Route::get('user/monitoring-create', [MonitoringController::class,'user_monitoring_create']);
-    Route::get('user/backup-index', [BackupController::class,'user_backup_index']);
-    Route::get('user/backup-create', [BackupController::class,'user_backup_create']);
-    Route::get('user/restore-index', [RestoreController::class,'user_restore_index']);
-    Route::get('user/restore-create', [RestoreController::class,'user_restore_create']);
-    Route::get('admin/dashboard', [DashboardController::class,'index']);
-    Route::get('admin/kelola_admin', [AdminController::class, 'index']);
-    Route::get('admin/kelola_user', [UserController::class, 'index']);
-    Route::get('admin/rfc', [RfcController::class, 'index']);
-    Route::get('admin/riwayat_rfc', [RfcController::class, 'create']);
-    Route::get('admin/monitoring', [MonitoringController::class, 'index']);
-    Route::get('admin/riwayat_monitoring', [MonitoringController::class, 'riwayat']);
-    Route::get('admin/restore', [RestoreController::class, 'index']);
-    Route::get('admin/riwayat_restore', [RestoreController::class, 'riwayat']);
-    Route::get('admin/backup', [BackupController::class, 'index']);
-    Route::get('admin/riwayat_backup', [BackupController::class, 'create']);
-    Route::post('submit-backup', [BackupController::class, 'store']);
-    Route::get('logout', [SessionController::class, 'logout']);
-}); 
+    // masuk ke halaman edit
+    Route::get('user/edit-monitoring/{id}', [MonitoringController::class, 'edit']);
+    // mengurim hasil edit
+    Route::post('user/update-monitoring/{id}', [MonitoringController::class, 'update']);
+    // menghapus data monitoring
+    Route::delete('user/delete-monitoring/{id}', [MonitoringController::class, 'destroy']);
+
+    // routing backup user
+    // masuk ke halaman index backup user
+    Route::get('user/index-backup', [BackupController::class, 'index']);
+    // masuk ke halaman form user
+    Route::get('user/create-backup', [BackupController::class, 'create']);
+    // submit form yang telah di isi
+    Route::post('user/submit-backup', [BackupController::class, 'store']);
+    // masuk ke halaman edit
+    Route::get('user/edit-backup/{id}', [BackupController::class, 'edit']);
+    // mengurim hasil edit
+    Route::post('user/update-backup/{id}', [BackupController::class, 'update']);
+    // menghapus data monitoring
+    Route::delete('user/delete-backup/{id}', [BackupController::class, 'destroy']);
+
+    // routing restore user
+    // masuk ke halaman index restore user
+    Route::get('user/index-restore', [RestoreController::class, 'index']);
+    // masuk ke halaman form user
+    Route::get('user/create-restore', [RestoreController::class, 'create']);
+    // submit form yang telah di isi
+    Route::post('user/submit-restore', [RestoreController::class, 'store']);
+    // masuk ke halaman edit
+    Route::get('user/edit-restore/{id}', [RestoreController::class, 'edit']);
+    // mengurim hasil edit
+    Route::post('user/update-restore/{id}', [RestoreController::class, 'update']);
+    // menghapus data restore
+    Route::delete('user/delete-restore/{id}', [RestoreController::class, 'destroy']);
+
+
+        //masuk kehalamann index admin
+    Route::get('admin/dashboard',[DashboardController::class,'index']); 
+    //routing monitoring admin
+    // masuk ke halaman index rfc
+    Route::get('admin/index-rfc', [RfcController::class,'index']);
+    // masuk ke halaman edit rfc
+    Route::get('admin/edit-rfc/{id}', [RfcController::class, 'edit']);
+    // mengurim hasil edit rfc
+    Route::post('admin/update-rfc/{id}', [RfcController::class, 'update']);
+    // masuk ke halaman riwayat
+    Route::get('admin/history-rfc', [RfcController::class, 'history']);
+    // menghapus data rfc admin
+    Route::delete('admin/delete-rfc/{id}',[RfcController::class,'destroy']);
+    // masuk ke halaman index monitoring admin
+    Route::get('admin/index-monitoring', [MonitoringController::class,'index']);
+    //masuk ke halaman backup admin
+    Route::get('admin/index-backup', [BackupController::class, 'index']);
+    //masuk ke halaman restore admin
+    Route::get('admin/index-restore', [RestoreController::class, 'index']);
+});
+

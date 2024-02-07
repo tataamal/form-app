@@ -14,7 +14,7 @@
                       <small class="text-muted float-end">Tabel Monitoring</small>
                     </div>
                     <div class="card-body">
-                      <form action="/user/submit-monitoring" method="post">
+                      <form action="{{ url('user/submit-monitoring') }}" method="post">
                         @csrf
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-name">Nama Perangkat</label>
