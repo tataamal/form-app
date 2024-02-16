@@ -21,24 +21,33 @@
             </tr>
         </thead>
         <tbody class="table-border-bottom-0">
-            @foreach ($data_backup as $item)
-                
+
+            @forelse ($data_backup as $item)
             <tr>
-                <th>{{ $item->id_backup }}</th>
+                <th>{{ $loop->iteration }}</th>
                 <th>{{ $item->periode }}</th>
-                <th>{{ $item->tanggal }}</th>
+                <th>{{ date('d F Y', strtotime($item->tanggal)) }}</th>
                 <th>{{ $item->objek }}</th>
                 <th>{{ $item->pj }}</th>
                 <th>{{ $item->keterangan}}</th>
                 <td>
-                    <a href="{{ url('backup-edit', $item->id_backup) }}"><span class="btn btn-primary rounded-2 fw-semibold">Edit</span></a>
-                    <form action="{{ url('backup-delete', $item->id_backup) }}" class="mt-3" method="POST">
+                    <a href="{{ url('admin/edit-backup', $item->id_backup) }}"><span class="btn btn-primary rounded-2 fw-semibold">Edit</span></a>
+                    <form action="{{ url('admin/delete-backup', $item->id_backup) }}" class="mt-3" method="POST">
                         @csrf
                         @method("DELETE")
                         <input type="submit" class="btn btn-danger rounded-2 fw-semibold" value="Delete">
                     </form>
                 </td>
             </tr>
+            @empty
+                <tr>
+                    <td colspan="7" class="text-center">Belum ada data yang masuk</td>
+                </tr>
+            @endforelse
+
+
+            @foreach ($data_backup as $item)
+                
             @endforeach
         </tbody>
         </table>

@@ -45,19 +45,19 @@
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-name">Utilisation (CPU)</label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control" id="basic-default-name" name="cpu" placeholder="Masukan Utilisation CPU" />
+                              <input type="text" class="form-control" id="basic-default-name" name="cpu" placeholder="Masukan Utilisation CPU (angka 1 - 100)" />
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-name">Utilisation (RAM)</label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control" id="basic-default-name" name="ram" placeholder="Masukan Utilisation RAM" />
+                              <input type="text" class="form-control" id="basic-default-name" name="ram" placeholder="Masukan Utilisation RAM (angka 1 - 100)" />
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="basic-default-name">Utilisation (DISK)</label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control" id="basic-default-name" name="disk" placeholder="Masukan Utilisation DISK" />
+                              <input type="text" class="form-control" id="basic-default-name" name="disk" placeholder="Masukan Utilisation DISK (angka 1 - 100)" />
                             </div>
                         </div>
                         <div class="row mb-3">

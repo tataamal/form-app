@@ -8,7 +8,7 @@
     <br>
     <div class="row d-flex justify-content-center m-5">
         <div class="col-10">
-            <h2 class="d-flex justify-content-center fw-bold pb-5 " >Pusat Formulir Kominfo</h2>
+            <h2 class="d-flex justify-content-center fw-bold pb-5 " >Heldesk Diskominfo Kudus</h2>
             <div class="card  d-flex flex-row no-block justify-content-center">
                 <div class="col-4 p-5">
                         <a href="/login"><img src="/images/dashboard-logo.png" class="img-fluid" alt=""></a>

@@ -25,7 +25,7 @@
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label" for="basic-default-name">Diminta Oleh</label>
                     <div class="col-sm-10">
-                    <input type="text" class="form-control" name="pengaju" id="basic-default-name" value="{{ auth()->user()->username }}" />
+                    <input type="text" class="form-control" name="pengaju" id="basic-default-name" value="{{ auth()->user()->username }}" readonly/>
                     </div>
                 </div>
                 <div class="row mb-3">

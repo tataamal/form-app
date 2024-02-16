@@ -125,9 +125,23 @@ Route::middleware(['auth'])->group(function(){
     Route::delete('admin/delete-rfc/{id}',[RfcController::class,'destroy']);
     // masuk ke halaman index monitoring admin
     Route::get('admin/index-monitoring', [MonitoringController::class,'index']);
+    // menghapus data monitoring admin
+    Route::delete('admin/delete-monitoring/{id}',[MonitoringController::class,'destroy']);
     //masuk ke halaman backup admin
     Route::get('admin/index-backup', [BackupController::class, 'index']);
+    // masuk ke halaman edit backup admin
+    Route::get('admin/edit-backup/{id}', [BackupController::class, 'edit']);
+    // mengurim hasil edit backup admin
+    Route::post('admin/update-backup/{id}', [BackupController::class, 'update']);
+    // menghapus data backup admin
+    Route::delete('admin/delete-backup/{id}',[BackupController::class,'destroy']);
     //masuk ke halaman restore admin
     Route::get('admin/index-restore', [RestoreController::class, 'index']);
+    // masuk ke halaman edit restore admin
+    Route::get('admin/edit-restore/{id}', [RestoreController::class, 'edit']);
+    // mengurim hasil edit restore admin
+    Route::post('admin/update-restore/{id}', [RestoreController::class, 'update']);
+    // menghapus data restore admin
+    Route::delete('admin/delete-restore/{id}',[RestoreController::class,'destroy']);
 });
 

@@ -31,7 +31,7 @@
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="basic-default-name">Diminta Oleh</label>
                         <div class="col-sm-10">
-                        <input type="text" class="form-control" name="pengaju" id="basic-default-name" value="{{ $rfc->pengaju }}" placeholder="Masukan Nama Pengaju" />
+                        <input type="text" class="form-control" name="pengaju" id="basic-default-name" readonly value="{{ $rfc->pengaju }}" placeholder="Masukan Nama Pengaju"/>
                         </div>
                     </div>
                     <div class="row mb-3">

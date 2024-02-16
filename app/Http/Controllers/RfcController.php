@@ -113,7 +113,7 @@ class RfcController extends Controller
         $rfc = Rfc::findorfail($id);
         $rfc->delete();
         if(Auth()->user()->role == 'admin'){
-            return redirect('admin/index-rfc');
+            return redirect('admin/history-rfc');
         }
         elseif(Auth()->user()->role == 'user'){
             return redirect('user/index-rfc');

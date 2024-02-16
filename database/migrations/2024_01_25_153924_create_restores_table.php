@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('restore', function (Blueprint $table) {
             $table->id('id_restore');
             $table->string('periode');
-            $table->bigInteger('id_backup');
             $table->date('tanggal');
             $table->string('objek');
             $table->string('Status');

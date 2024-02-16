@@ -101,7 +101,7 @@ class MonitoringController extends Controller
         $monitoring = Monitoring::findorfail($id);
         $monitoring->delete();
         if(Auth()->user()->role == 'admin'){
-            
+            return redirect('admin/index-monitoring');
         }
         elseif(Auth()->user()->role == 'user'){
             return redirect('user/index-monitoring');

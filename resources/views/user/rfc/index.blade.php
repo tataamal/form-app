@@ -46,7 +46,7 @@
                 </tr>    
                 @empty
                 <tr>
-                    <td colspan="6" class="text-center" >Tidak ada Formulir Masuk</td>
+                    <td colspan="6" class="text-center" >Belum ada data pengajuan</td>
                 </tr>
                 @endforelse
             </tbody>

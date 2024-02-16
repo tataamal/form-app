@@ -32,14 +32,14 @@
                 <td>{{ $item->nama_perangkat }}</td>
                 <td>{{ $item->lokasi }}</td>
                 <td>{{ $item->max }}</td>
-                <td>{{ $item->tgl_monitoring }}</td>
+                <td>{{ date('d F Y', strtotime($item->tgl_monitoring)) }}</td>
                 <td>{{ $item->cpu }} %</td>
                 <td>{{ $item->ram }} %</td>
                 <td>{{ $item->disk }} %</td>
                 <td>{{ $item->tindak_lanjut }}</td>
                 <td>{{ $item->pj }}</td>
                 <td>
-                    <form action="{{ url('monitoring-delete', $item->id_monitoring) }}" method="POST">
+                    <form action="{{ url('admin/delete-monitoring', $item->id_monitoring) }}" method="POST">
                         @csrf
                         @method("DELETE")
                         <input type="submit" class="btn btn-danger rounded-2 fw-semibold" value="Delete">
@@ -48,6 +48,10 @@
                 </tr>
                     
                 @empty
+
+                <tr>
+                    <td colspan="10" class="text-center">Belum ada data masuk</td>
+                </tr>
                     
                 @endforelse
             </tbody>

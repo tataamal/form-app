@@ -95,6 +95,11 @@ class BackupController extends Controller
     {
         $backup = Backup::findorfail($id);
         $backup->delete();
-        return redirect('user/index-backup');
+        if(Auth()->user()->role == 'admin'){
+            return redirect('admin/index-backup');
+        }
+        elseif(Auth()->user()->role == 'user'){
+            return redirect('user/index-backup');
+        }
     }
 }

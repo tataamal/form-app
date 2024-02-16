@@ -59,7 +59,7 @@
                     </tr>    
                     @empty
                     <tr>
-                        <td colspan="6" class="text-center" >Tidak ada Formulir Masuk</td>
+                        <td colspan="13" class="text-center" >Tidak ada Formulir Masuk</td>
                     </tr>
                     @endforelse
                 </tbody>

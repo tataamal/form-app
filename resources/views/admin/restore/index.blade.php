@@ -22,30 +22,29 @@
                 </tr>
             </thead>
             <tbody class="table-border-bottom-0">
+                @forelse ($data_restore as $item)    
                 <tr>
-                <td>1</td>
-                <td>Periode 2023</td>
-                <td>39 Februari 2023</td>
-                <td>Database</td>
-                <td><span class="badge bg-label-success me-1">Selesai Dibackup</span></td>
-                <td>Budi Cahyadi</td>
-                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $item->periode }}</td>
+                <td>{{ date('d F Y', strtotime($item->tanggal)) }}</td>
+                <td>{{ $item->objek }}</td>
+                <td>{{ $item->status }}</td>
+                <td>{{ $item->pj }}</td>
+                <td>{{ $item->keterangan }}</td>
                 <td>
-                    <div class="dropdown">
-                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                        <i class="bx bx-dots-vertical-rounded"></i>
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="javascript:void(0);"
-                        ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                        >
-                        <a class="dropdown-item" href="javascript:void(0);"
-                        ><i class="bx bx-trash me-1"></i> Delete</a
-                        >
-                    </div>
-                    </div>
+                    <a href="{{ url('admin/edit-restore', $item->id_restore) }}"><span class="btn btn-primary rounded-2 fw-semibold">Edit</span></a>
+                    <form action="{{ url('admin/delete-restore', $item->id_restore) }}" class="mt-3" method="POST">
+                        @csrf
+                        @method("DELETE")
+                        <input type="submit" class="btn btn-danger rounded-2 fw-semibold" value="Delete">
+                    </form>
                 </td>
                 </tr>
+                @empty
+                <tr>
+                    <td colspan="8" class="text-center">Belum ada data yang masuk</td>
+                </tr>
+                @endforelse
             </tbody>
             </table>
         </div>
