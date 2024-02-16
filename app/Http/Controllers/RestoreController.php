@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
-use App\Models\restore;
-use App\Models\backup;
+use App\Models\Restore;
+use App\Models\Backup;
 use Illuminate\Http\Request;
 
 class RestoreController extends Controller
